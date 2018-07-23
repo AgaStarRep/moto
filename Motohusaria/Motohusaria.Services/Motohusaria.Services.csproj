@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="7.0.1" />
+    <PackageReference Include="MailKit" Version="2.0.4" />
+    <PackageReference Include="Microsoft.CSharp" Version="4.5.0" />
+    <PackageReference Include="Microsoft.Extensions.Hosting.Abstractions" Version="2.1.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Motohusaria.DataLayer\Motohusaria.DataLayer.csproj" />
+    <ProjectReference Include="..\Motohusaria.DomainClasses\Motohusaria.DomainClasses.csproj" />
+    <ProjectReference Include="..\Motohusaria.DTO\Motohusaria.DTO.csproj" />
+  </ItemGroup>
+
+</Project>

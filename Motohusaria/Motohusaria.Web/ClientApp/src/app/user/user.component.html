@@ -1,0 +1,35 @@
+<modal [header]="header" [show]="isVisable" (modalClose)="close()">
+    <div class="" *ngIf="entityForm">
+        <div class="errors" *ngIf="errors">
+            <div class="error" *ngFor="let e of errors">{{e}}</div>
+        </div>
+        <form [formGroup]="entityForm" (ngSubmit)="onSubmit()">
+            <mat-form-field class="">
+                <input matInput placeholder="Login" formControlName="login">
+                <mat-error *ngIf="entityForm.hasError('required',['login'])">Login jest wymagany</mat-error>
+                <mat-error *ngIf="entityForm.hasError('maxlength',['login'])">Maksymalna długość pola Login to 128 znaków</mat-error>
+            </mat-form-field>
+            <mat-form-field>
+                <custom-select placeholder="UserRoles" (onSearched)="getUserRolesOptions($event)" formControlName="userRolesSelectedIds"
+                               [options]="userRolesOptions" [multiple]="true"></custom-select>
+
+            </mat-form-field>
+            <mat-form-field class="">
+                <input matInput type="password" placeholder="Hasło" formControlName="password">
+                <mat-error *ngIf="entityForm.hasError('required',['password'])">Pole Hasło jest wymagane</mat-error>
+            </mat-form-field>
+            <mat-form-field class="">
+                <input matInput type="password" placeholder="Powtórz Hasło" formControlName="passwordConfirm">
+                <mat-error *ngIf="entityForm.hasError('required',['passwordConfirm'])">Pole Powtórz Hasło jest wymagane</mat-error>
+            </mat-form-field>
+            <mat-form-field class=" hidden">
+                <textarea matInput placeholder="Id" formControlName="id" matTextareaAutosize matAutosizeMinRows="3" matAutosizeMaxRows="15"></textarea>
+            </mat-form-field>
+            <mat-error *ngIf="entityForm.controls['password'].valid && entityForm.controls['passwordConfirm'].valid && entityForm.hasError('mismatchedPasswords')">Hasła są różne</mat-error>
+            <div class="right">
+                <div class="btn btn-default" (click)="close()" aria-label="Close">Anuluj</div>
+                <input class="btn btn-info" value="Zapisz" type="submit" [disabled]="entityForm.pristine" />
+            </div>
+        </form>
+    </div>
+</modal>

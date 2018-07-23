@@ -1,0 +1,11 @@
+<div>
+        <ng-select [items]="options"
+            bindLabel="label"
+            bindValue="value"
+            [multiple]="multiple" 
+            [(ngModel)]="value"
+            [typeahead]="typeahead"
+            (focus)="fireTouched($event)"
+            >
+        </ng-select>
+</div>

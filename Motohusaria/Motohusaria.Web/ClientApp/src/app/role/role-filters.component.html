@@ -1,0 +1,9 @@
+<form class="filters"  [formGroup]="entityForm" (ngSubmit)="onSubmit()">
+<div class="filters-options">
+<mat-form-field class=""><input matInput placeholder="Nazwa" formControlName="name">
+</mat-form-field>
+
+</div>
+    <input class="btn btn-sm btn-outline btn-info" value="Filtruj" type="submit" />
+</form>
+

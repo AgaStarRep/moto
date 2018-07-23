@@ -1,0 +1,36 @@
+<div class="d-flex align-items-stretch flex-nowrap min-height-100 h-100">
+  <div class="bg-cover bg-2 d-none d-md-inline-flex col-md-6 col-lg-8"></div>
+  <div class="card card-body mb-0 rounded-0 p-5 col-sm-12 col-md-6 col-lg-4">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <div class="mb-3">
+        <img src="assets/images/logo.png" class="avatar-xs mb-1" alt="">
+        <p class="ff-headers text-uppercase">Załóż konto</p>
+      </div>
+      <fieldset class="form-group" [ngClass]="{'has-danger': form.controls['uname'].hasError('required') && form.controls['uname'].touched}">
+        <label for="username">
+          Wprowadź login
+        </label>
+        <input type="text" class="form-control" placeholder="Login" [formControl]="form.controls['uname']" [ngClass]="{'form-control-danger': form.controls['uname'].hasError('required') && form.controls['uname'].touched}"/>
+        <div class="form-control-feedback" *ngIf="form.controls['uname'].hasError('required') && form.controls['uname'].touched">Login jest wymagany.</div>
+      </fieldset>
+      <fieldset class="form-group" [ngClass]="{'has-danger': form.controls['password'].hasError('required') && form.controls['password'].touched}">
+        <label for="password">
+          Wprowadź hasło
+        </label>
+        <input type="password" class="form-control" placeholder="********" [formControl]="form.controls['password']" [ngClass]="{'form-control-danger': form.controls['password'].hasError('required') && form.controls['password'].touched}"/>
+        <div class="form-control-feedback" *ngIf="form.controls['password'].hasError('required') && form.controls['password'].touched">Hasło jest wymagane.</div>
+      </fieldset>
+      <fieldset class="form-group" [ngClass]="{'has-danger': form.controls['confirmPassword'].hasError('required') && form.controls['confirmPassword'].touched}">
+        <label for="password">
+          Powtórz hasło
+        </label>
+        <input type="password" class="form-control" placeholder="********" [formControl]="form.controls['confirmPassword']" [ngClass]="{'form-control-danger': form.controls['confirmPassword'].hasError('required') && form.controls['confirmPassword'].touched}"/>
+        <div class="form-control-feedback" *ngIf="form.controls['confirmPassword'].hasError('required') && form.controls['confirmPassword'].touched">Potwierdź hasło</div>
+        <div class="form-control-feedback" *ngIf="form.hasError('mismatchedPasswords') && form.controls['confirmPassword'].touched">Hasła się nie zgadzają.</div>
+      </fieldset>
+      <div class="block mb-3"></div>
+      <button class="btn btn-info" type="submit" [disabled]="!form.valid">Utwórz konto</button>
+      <a class="btn btn-outline-primary btn-link" [routerLink]="['/signin']">Zaloguj się</a>
+    </form>
+  </div>
+</div>

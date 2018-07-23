@@ -1,0 +1,20 @@
+﻿.modal.force-show {
+    display: block;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+::ng-deep .cdk-overlay-container {
+    z-index: 1200 !important;
+}
+
+.cover {
+    opacity: 0.6 !important;
+    position: fixed;
+    height: 100%;
+    z-index: 1036;
+    background-color: black;
+    top: 0;
+    left: 0;
+    width: 100%;
+}

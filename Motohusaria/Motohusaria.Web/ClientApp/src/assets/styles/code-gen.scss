@@ -1,0 +1,155 @@
+.mat-form-field.mat-form-field {
+  width: auto;
+  display: block;
+}
+
+.mat-form-field.mat-form-field.hidden {
+  display: none;
+}
+
+custom-select {
+  .ng-select {
+    .ng-control.ng-control {
+      border: none;
+      height: initial;
+      min-height: initial;
+    }
+
+    &.focused:not(.opened) > .ng-control {
+      border: none;
+      box-shadow: none;
+      -webkit-box-shadow: none;
+    }
+
+    &.ng-single .ng-control .ng-value-container .ng-input {
+      top: 0;
+    }
+
+    .ng-control:hover {
+      -webkit-box-shadow: none;
+      box-shadow: none;
+    }
+  }
+}
+
+.overflow-visible {
+  overflow: visible !important;
+}
+
+
+.entity-list-page {
+  display: flex;
+  flex-direction: column;
+}
+
+.entity-card {
+  .card-body {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .buttons {
+    margin: 15px 0;
+    border: 1px solid #d8d8d8;
+    border-radius: 3px;
+    padding: 5px;
+  }
+
+  .filters {
+    margin: 15px 0;
+    border: 1px solid #d8d8d8;
+    border-radius: 3px;
+    padding: 5px;
+
+    .mat-form-field {
+      display: inline-block;
+    }
+
+    .filters-options {
+      display: flex;
+      align-items: flex-end;
+
+      .mat-form-field {
+        margin-right: 10px;
+      }
+    }
+  }
+
+  .entity-table-container {
+    display: block;
+    overflow: auto;
+
+    .mat-table {
+      display: table;
+      width: 100%;
+      align-items: center;
+    }
+
+    mat-cell.mat-cell, .mat-header-cell {
+      min-width: 100px;
+    }
+  }
+
+  .mat-table mat-row:nth-of-type(2n+1) {
+    background-color: rgba(0,0,0,.05);
+  }
+
+  mat-header-row.mat-header-row {
+    position: sticky;
+    top: 0;
+    background-color: #fff;
+  }
+}
+
+
+
+
+.inline-edit-container {
+  .mat-row {
+    align-items: flex-end;
+
+    .buttons-column {
+      align-self: center;
+    }
+  }
+}
+
+
+.btn-transparent-square {
+  color: #000;
+  background-color: transparent;
+  width: 50px;
+  height: 50px;
+  font-size: 15px;
+  vertical-align: middle;
+  display: table-cell;
+  padding-bottom: 0;
+  padding-top: 0;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.btn-transparent-square:hover {
+  background-color: #ccc;
+  color: #000;
+}
+
+.btn-add {
+  padding-bottom: 0;
+  padding-top: 0;
+  padding-left: 0;
+  padding-right: 0;
+  width: 50px;
+  height: 50px;
+  background-color: transparent;
+  color: #00c853;
+}
+
+.btn-add:hover {
+  background-color: #ccc;
+  color: #00c853;
+}
+
+.right {
+  float: right;
+}

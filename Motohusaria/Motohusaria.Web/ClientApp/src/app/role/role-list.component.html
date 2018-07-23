@@ -1,0 +1,35 @@
+<div class="card entity-card">
+    <div class="card-body">
+        <router-outlet></router-outlet>
+        <div class="buttons">
+            <a routerLink="create" queryParamsHandling="merge" class="btn btn-sm btn-info">
+                Dodaj nowy
+            </a>
+        </div>
+        <role-filters #filters (filter)="filter()"></role-filters>
+        <div #tableContainer class="entity-table-container" infiniteScroll [infiniteScrollDistance]="2" [infiniteScrollThrottle]="50"
+            [scrollWindow]="false" (scrolled)="onScroll()">
+            <mat-table #table [dataSource]="entities" matSort (matSortChange)="sortData($event)">
+                <ng-container matColumnDef="name">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header>Nazwa</mat-header-cell>
+                    <mat-cell *matCellDef="let row">
+                        <a routerLink="edit/{{row.id}}" queryParamsHandling="merge">
+                            {{row.name }}
+                        </a>
+                    </mat-cell>
+                </ng-container>
+
+                <!-- Actions Column -->
+                <ng-container matColumnDef="buttons">
+                    <mat-header-cell *matHeaderCellDef></mat-header-cell>
+                    <mat-cell *matCellDef="let element">
+                        <a routerLink="delete/{{element.id}}" queryParamsHandling="merge" class="btn btn-sm btn-transparent-square">
+                            <i class="icon icon-basic-trashcan"></i>
+                        </a>
+                    </mat-cell>
+                </ng-container>
+                <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+            </mat-table>
+        </div>
+    </div>

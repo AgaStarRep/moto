@@ -1,0 +1,29 @@
+<modal [header]="header" [show]="isVisable" (modalClose)="close()">
+    <div class="" *ngIf="entityForm">
+        <div class="errors" *ngIf="errors">
+            <div class="error" *ngFor="let e of errors">{{e}}</div>
+        </div>
+        <form [formGroup]="entityForm" (ngSubmit)="onSubmit()">
+            <mat-form-field class="">
+                <input matInput placeholder="Nazwa" formControlName="name">
+                <mat-error *ngIf="entityForm.hasError('required',['name'])">Pole Nazwa jest wymagane</mat-error>
+                <mat-error *ngIf="entityForm.hasError('maxlength',['name'])">Masymalna d�ugo�c pola Nazwa to 128 znak�w</mat-error>
+
+            </mat-form-field>
+            <mat-form-field>
+                <custom-select placeholder="RoleUsers" (onSearched)="getRoleUsersOptions($event)" formControlName="roleUsersSelectedIds" [options]="roleUsersOptions" [multiple]="true"></custom-select>
+
+            </mat-form-field>
+            <mat-form-field class=" hidden">
+                <textarea matInput placeholder="Id" formControlName="id" matTextareaAutosize matAutosizeMinRows="3" matAutosizeMaxRows="15"></textarea>
+
+            </mat-form-field>
+
+            <div class="right">
+                <div class="btn btn-default" (click)="close()" aria-label="Close">Anuluj</div>
+                <input class="btn btn-info" value="Zapisz" type="submit" [disabled]="entityForm.pristine" />
+            </div>
+        </form>
+    </div>
+</modal>
+
